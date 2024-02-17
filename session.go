@@ -19,6 +19,11 @@ const (
 	apiUser       endpoint = base + "user/"
 )
 
+type ErrorCode struct {
+	Error string `json:"error"`
+	Code  int    `json:"code"`
+}
+
 // Session represents
 // a state for given API operations.
 // This includes a Torn users API key

@@ -8,23 +8,24 @@ import (
 
 // User represents all data of a Torn user
 type User struct {
-	Rank       string   `json:"rank"`
-	Level      int      `json:"level"`
-	Gender     string   `json:"gender"`
-	Property   string   `json:"property"`
-	Signup     string   `json:"signup"`
-	Awards     int      `json:"awards"`
-	Friends    int      `json:"friends"`
-	Enemies    int      `json:"enemies"`
-	ForumPosts int      `json:"forum_posts"`
-	Karma      int      `json:"karma"`
-	Age        int      `json:"age"`
-	Role       string   `json:"role"`
-	Donator    int      `json:"donator"`
-	ID         int      `json:"player_id"`
-	Name       string   `json:"name"`
-	PropertyID int      `json:"property_id"`
-	Status     []string `json:"status"`
+	Error      ErrorCode `json:"error"`
+	Rank       string    `json:"rank"`
+	Level      int       `json:"level"`
+	Gender     string    `json:"gender"`
+	Property   string    `json:"property"`
+	Signup     string    `json:"signup"`
+	Awards     int       `json:"awards"`
+	Friends    int       `json:"friends"`
+	Enemies    int       `json:"enemies"`
+	ForumPosts int       `json:"forum_posts"`
+	Karma      int       `json:"karma"`
+	Age        int       `json:"age"`
+	Role       string    `json:"role"`
+	Donator    int       `json:"donator"`
+	ID         int       `json:"player_id"`
+	Name       string    `json:"name"`
+	PropertyID int       `json:"property_id"`
+	Status     []string  `json:"status"`
 	Job        *struct {
 		Position    string `json:"position"`
 		CompanyID   int    `json:"company_id"`
