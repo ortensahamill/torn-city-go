@@ -1,7 +1,7 @@
 package torn
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -25,12 +25,13 @@ const (
 // to access the Torn API, as well as
 // stateful data, such as item prices.
 type Session struct {
-	apiKey string
+	apiKey  string
+	comment string
 }
 
 // NewSession returns a *Session
 // initialized with the give apiKey.
-func NewSession(apiKey string) *Session {
+func NewSession(apiKey string, comment string) *Session {
 	return &Session{apiKey: apiKey}
 }
 
@@ -39,7 +40,7 @@ func (s *Session) buildEndpoint(api endpoint, args map[string]string) string {
 	for k, v := range args {
 		ep += k + "=" + v + "&"
 	}
-	ep += "key=" + s.apiKey
+	ep += "key=" + s.apiKey + "&comment=" + s.comment
 	return ep
 }
 
@@ -47,7 +48,7 @@ func (s *Session) callAPI(api endpoint, args map[string]string) (data []byte, er
 	url := s.buildEndpoint(api, args)
 	resp, err := http.Get(url)
 	if err == nil {
-		data, err = ioutil.ReadAll(resp.Body)
+		data, err = io.ReadAll(resp.Body)
 	}
 	return
 }
