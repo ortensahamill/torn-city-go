@@ -37,7 +37,7 @@ type Session struct {
 // NewSession returns a *Session
 // initialized with the give apiKey.
 func NewSession(apiKey string, comment string) *Session {
-	return &Session{apiKey: apiKey}
+	return &Session{apiKey: apiKey, comment: comment}
 }
 
 func (s *Session) buildEndpoint(api endpoint, args map[string]string) string {
